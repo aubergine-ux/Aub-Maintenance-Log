@@ -12,6 +12,7 @@ const save = () => {
 
 const render = () => {
     let html = ''
+    entries.sort((a, b) => b.mileage - a.mileage)
     entries.forEach((e, i) => {
         html += `
             <div class="entry">
