@@ -96,3 +96,7 @@ button:hover {
   background: #6b21a8;
   color: #e8d5ff;
 }
+
+.latest {
+    border-color: #c084fc;
+}
