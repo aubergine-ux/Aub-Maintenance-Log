@@ -18,12 +18,18 @@ clear.addEventListener('click', () => {
     render()
 })
 
+
+mileage.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') add.click()
+})
+
 const render = () => {
     let html = ''
     entries.sort((a, b) => b.mileage - a.mileage)
     entries.forEach((e, i) => {
+        const highlight = i === 0 ? 'entry latest' : 'entry'
         html += `
-            <div class="entry">
+            <div class="${highlight}">
                 <div class="entry-info">
                     <h3>${e.service}</h3>
                     <p>${e.date} - ${e.mileage} miles</p>
