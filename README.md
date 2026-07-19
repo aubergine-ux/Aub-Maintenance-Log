@@ -8,7 +8,7 @@
 🔗 **Live Demo:** [Link](https://armd.one/Aub-Maintenance-Log/)
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/da3e00c8-0dff-4d55-8015-44dd13be99ef" alt="Car Maintenance Log" width="100%" />
+<img src="https://github.com/user-attachments/assets/ffbad833-1c1a-416e-858e-a0d1eea91935" alt="Car Maintenance Log" width="100%" />
 </p>
 
 ---
