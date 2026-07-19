@@ -3,12 +3,14 @@ const date = document.getElementById('date')
 const mileage = document.getElementById('mileage')
 const add = document.getElementById('add')
 const list = document.getElementById('list')
+const notes = document.getElementById('notes')
 
 let entries = JSON.parse(localStorage.getItem('entries')) || []
 
 const save = () => {
     localStorage.setItem('entries', JSON.stringify(entries))
 }
+
 const clear = document.getElementById('clear')
 
 clear.addEventListener('click', () => {
@@ -33,6 +35,7 @@ const render = () => {
                 <div class="entry-info">
                     <h3>${e.service}</h3>
                     <p>${e.date} - ${e.mileage} miles</p>
+                    ${e.notes ? `<p>${e.notes}</p>` : ''}
                 </div>
                 <button class="delete" data-index="${i}">Delete</button>
             </div>
@@ -47,7 +50,8 @@ add.addEventListener('click', () => {
     entries.push ({
         service: service.value,
         date: date.value,
-        mileage: mileage.value
+        mileage: mileage.value,
+        notes: notes.value
     })
 
     save()
@@ -56,6 +60,7 @@ add.addEventListener('click', () => {
     service.value = ''
     date.value = ''
     mileage.value = ''
+    notes.value = ''
 })
 
 list.addEventListener('click', (e) => {
