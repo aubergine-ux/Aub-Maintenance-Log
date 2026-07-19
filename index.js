@@ -9,6 +9,14 @@ let entries = JSON.parse(localStorage.getItem('entries')) || []
 const save = () => {
     localStorage.setItem('entries', JSON.stringify(entries))
 }
+const clear = document.getElementById('clear')
+
+clear.addEventListener('click', () => {
+    if (!confirm('Clear Entries?')) return
+    entries = []
+    save()
+    render()
+})
 
 const render = () => {
     let html = ''
@@ -24,7 +32,7 @@ const render = () => {
             </div>
         `
     })
-    list.innerHTML = html
+    list.innerHTML = html + `<p class="count">${entries.length} entries logged</p>`
 }
 
 add.addEventListener('click', () => {
