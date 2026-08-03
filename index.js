@@ -6,6 +6,40 @@ const add = document.getElementById('add')
 const list = document.getElementById('list')
 const notes = document.getElementById('notes')
 
+const navBtns = document.querySelectorAll('.nav-btn')
+const views = document.querySelectorAll('.view')
+const stats = document.getElementById('stats')
+
+navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        views.forEach(view => view.classList.add('hidden'))
+        navBtns.forEach(b => b.classList.remove('active'))
+
+        document.getElementById(btn.dataset.view).classList.remove('hidden')
+        btn.classList.add('active')
+
+        if (btn.dataset.view === 'stats') renderStats()
+    })
+})
+
+const renderStats = () => {
+    if (!entries.length) {
+        stats.innerHTML = '<p class="empty">No data yet. Log some services first!</p>'
+        return
+    }
+
+    const total = entries.reduce((sum, e) => sum + Number(e.cost || 0), 0)
+    const average = total / entries.length
+    const highest = Math.max(...entries.map(e => Number(e.mileage)))
+
+    stats.innerHTML = `
+        <div class="stat"><h3>${entries.length}</h3><p>services logged</p></div>
+        <div class="stat"><h3>$${total.toFixed(2)}</h3><p>total spent</p></div>
+        <div class="stat"><h3>$${average.toFixed(2)}</h3><p>average per service</p></div>
+        <div class="stat"><h3>${highest.toLocaleString()}</h3><p>highest mileage</p></div>
+    `
+}
+
 let entries = JSON.parse(localStorage.getItem('entries')) || []
 
 let editingIndex = null

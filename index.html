@@ -9,19 +9,32 @@
 </head>
 <body>
     <div class="container">
+        
         <h1>Aub Car Maintenance Log</h1>
 
-        <div class="panel">
-            <input type="text" id="service" placeholder="Service (Ex. Oil Change)">
-            <input type="date" id="date">
-            <input type="number" id="mileage" placeholder="Mileage">
-            <input type="number" id="cost" placeholder="Cost ($)">
-            <input type="text" id="notes" placeholder="Notes">
-            <button id="add">Add Entry</button>
-            <button id="clear">Clear Entries</button>
+        <nav>
+            <button class="nav-btn active" data-view="log">Log</button>
+            <button class="nav-btn" data-view="stats">Stats</button>
+        </nav>
+
+        <div id="log" class="view">
+
+            <div class="panel">
+                <input type="text" id="service" placeholder="Service (Ex. Oil Change)">
+                <input type="date" id="date">
+                <input type="number" id="mileage" placeholder="Mileage">
+                <input type="number" id="cost" placeholder="Cost ($)">
+                <input type="text" id="notes" placeholder="Notes">
+                <button id="add">Add Entry</button>
+                <button id="clear">Clear Entries</button>
+            </div>
+
+            <div id="list"></div>
+
         </div>
 
-        <div id="list"></div>
+        <div id="stats" class="view hidden"></div>
+
     </div>
 
     <script src="index.js"></script>

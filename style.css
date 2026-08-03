@@ -64,6 +64,47 @@ button:hover {
   color: #1a0a2e;
 }
 
+nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid #6b21a8;
+  color: #a78bca;
+}
+
+.nav-btn.active {
+  background: #6b21a8;
+  color: #e8d5ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.stat {
+  background: #2d1254;
+  border: 1px solid #6b21a8;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.stat h3 {
+  color: #c084fc;
+  font-size: 28px;
+}
+
+.stat p {
+  color: #a78bca;
+  font-size: 13px;
+}
+
 .entry {
   background: #2d1254;
   border: 1px solid #6b21a8;
