@@ -8,6 +8,8 @@ const notes = document.getElementById('notes')
 
 let entries = JSON.parse(localStorage.getItem('entries')) || []
 
+let editingIndex = null
+
 const save = () => {
     localStorage.setItem('entries', JSON.stringify(entries))
 }
@@ -40,7 +42,10 @@ const render = () => {
                     <p>${e.date} - ${e.mileage} miles${e.cost ? ` - $${e.cost}` : ''}</p>
                     ${e.notes ? `<p>${e.notes}</p>` : ''}
                 </div>
-                <button class="delete" data-index="${i}">Delete</button>
+                <div class="entry-actions">
+                    <button class="edit" data-index="${i}">Edit</button>
+                    <button class="delete" data-index="${i}">Delete</button>
+                </div>
             </div>
         `
     })
@@ -51,13 +56,25 @@ const render = () => {
 add.addEventListener('click', () => {
     if (!service.value) return
 
-    entries.push ({
-        service: service.value,
-        date: date.value,
-        mileage: mileage.value,
-        cost: cost.value,
-        notes: notes.value
-    })
+    if (editingIndex !== null) {
+        entries[editingIndex] = {
+            service: service.value,
+            date: date.value,
+            mileage: mileage.value,
+            cost: cost.value,
+            notes: notes.value
+        }
+        editingIndex = null
+        add.innerText = 'Add Entry'
+    } else {
+        entries.push ({
+            service: service.value,
+            date: date.value,
+            mileage: mileage.value,
+            cost: cost.value,
+            notes: notes.value
+        })
+    }
 
     save()
     render()
@@ -75,6 +92,19 @@ list.addEventListener('click', (e) => {
         entries.splice(i, 1)
         save()
         render()
+    } else if (e.target.classList.contains('edit')) {
+        const i = e.target.dataset.index
+        const entry = entries[i]
+
+        service.value = entry.service
+        date.value = entry.data
+        mileage.service = entry.mileage
+        cost.value = entry.clost || ''
+        notes.value = entry.notes
+
+        editingIndex = i
+        add.innerText = 'Save Changes'
+        service.focus()
     }
 })
 

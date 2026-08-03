@@ -97,6 +97,23 @@ button:hover {
   color: #e8d5ff;
 }
 
+.entry-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit {
+  background: transparent;
+  border: 1px solid #6b21a8;
+  color: #a78bca;
+  padding: 6px 12px;
+}
+
+.edit:hover {
+  background: #6b21a8;
+  color: #e8d5ff;
+}
+
 .latest {
     border-color: #c084fc;
 }
