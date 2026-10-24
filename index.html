@@ -27,6 +27,16 @@
                 <input type="text" id="notes" placeholder="Notes">
                 <button id="add">Add Entry</button>
                 <button id="clear">Clear Entries</button>
+                <button id="export">Export CSV</button>
+            </div>
+
+            <div class="controls">
+                <input type="text" id="search" placeholder="Search Services">
+                <select id="sort">
+                    <option value="mileage">Sort by Mileage</option>
+                    <option value="date">Sort by Date</option>
+                    <option value="cost">Sort by Cost</option>
+                </select>
             </div>
 
             <div id="list"></div>
@@ -38,4 +48,5 @@
     </div>
 
     <script src="index.js"></script>
+</body>
 </html>

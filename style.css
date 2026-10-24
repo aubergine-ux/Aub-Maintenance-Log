@@ -34,7 +34,7 @@ h1 {
   gap: 10px;
 }
 
-input {
+input, select {
   flex: 1;
   min-width: 120px;
   background: #1a0a2e;
@@ -62,6 +62,26 @@ button {
 button:hover {
   background: #c084fc;
   color: #1a0a2e;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.reminder {
+  background: #2d1254;
+  border: 1px solid #c084fc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.overdue {
+  border-color: #f87171;
+  color: #f87171;
 }
 
 nav {
